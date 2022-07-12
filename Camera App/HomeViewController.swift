@@ -7,12 +7,17 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
+    private var listVdeosCollectionView: UICollectionView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setNavItem()
+        createCollectionView()
+        
     }
 
 
@@ -30,8 +35,31 @@ class HomeViewController: UIViewController {
           navigationItem.rightBarButtonItems = [listVideoButton,videoButton]
     }
     
-    
+    private func createCollectionView(){
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        listVdeosCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        guard let listVdeosCollectionView = listVdeosCollectionView else {
+            return
+        }
+        listVdeosCollectionView.register(VideoCollectionViewCell.self, forCellWithReuseIdentifier: VideoCollectionViewCell.identifier)
+        listVdeosCollectionView.dataSource = self
+        listVdeosCollectionView.delegate = self
+        
 
+        view.addSubview(listVdeosCollectionView)
+        listVdeosCollectionView.frame = view.bounds
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     @objc func didTapListViedeosButton(sender: AnyObject){
         
@@ -39,6 +67,18 @@ class HomeViewController: UIViewController {
 
     @objc   func didTapTakeVideoButton(sender: AnyObject){
        
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell  = listVdeosCollectionView?.dequeueReusableCell(withReuseIdentifier: VideoCollectionViewCell.identifier, for: indexPath)
+        // cell!.contentView.backgroundColor = .systemYellow
+         
+        return cell!
     }
 
    
