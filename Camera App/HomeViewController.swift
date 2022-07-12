@@ -72,10 +72,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     @objc func didTapListViedeosButton(sender: AnyObject){
+        Utilities.vibrate()
         
     }
 
     @objc   func didTapTakeVideoButton(sender: AnyObject){
+        Utilities.vibrate()
        
     }
     

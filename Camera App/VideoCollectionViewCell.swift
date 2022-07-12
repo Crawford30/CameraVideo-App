@@ -16,6 +16,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
         imageView.image = UIImage(systemName: "house")
         imageView.backgroundColor = .yellow
         imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -29,6 +30,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .systemRed
+        contentView.clipsToBounds = true
         contentView.addSubview(myImageView)
         contentView.addSubview(dateLabel)
        
