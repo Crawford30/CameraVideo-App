@@ -8,7 +8,11 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    let myVertCVSpacing:  CGFloat = CGFloat( 8.0 )
+    private var listVdeosCollectionView: UICollectionView?
+
     
+    //MARK: - Image Picker Controller
     private lazy var imagePickerController: UIImagePickerController = {
         let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)
         let pickerController = UIImagePickerController()
@@ -18,15 +22,12 @@ class HomeViewController: UIViewController {
         
     }()
     
-    let myVertCVSpacing:  CGFloat = CGFloat( 8.0 )
-    private var listVdeosCollectionView: UICollectionView?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setNavItem()
         configureCollectionView()
-        
     }
 
 
@@ -37,14 +38,12 @@ class HomeViewController: UIViewController {
         navigationItem.title = "AR Camera"
           let videoImage   = UIImage(systemName: "video.fill")!
           let listVideos = UIImage(systemName: "list.dash")!
-
           let videoButton = UIBarButtonItem(image: videoImage,  style: .plain, target: self, action: #selector(didTapTakeVideoButton))
           let listVideoButton = UIBarButtonItem(image: listVideos,  style: .plain, target: self, action: #selector(didTapListViedeosButton))
-
           navigationItem.rightBarButtonItems = [listVideoButton,videoButton]
           
           
-          //If No camera, disbale the button
+          //MARK: -  If no camera, Disable the Video  Button
           if !UIImagePickerController.isSourceTypeAvailable(.camera){
               videoButton.isEnabled = false
               
@@ -81,16 +80,11 @@ class HomeViewController: UIViewController {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     @objc func didTapListViedeosButton(sender: AnyObject){
         Utilities.vibrate()
+        imagePickerController.sourceType  = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
         
     }
 
@@ -163,6 +157,9 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         }
         
         print("Media Type: \(mediaType)") //publiv.video or public.image
+        
+        //Dismiss Picker
+        picker.dismiss(animated: true, completion: nil)
         
     }
 }
