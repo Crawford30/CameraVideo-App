@@ -10,6 +10,11 @@ import UIKit
 class HomeViewController: UIViewController {
     let myVertCVSpacing:  CGFloat = CGFloat( 8.0 )
     private var listVdeosCollectionView: UICollectionView?
+    private var mediaObjects = [MediaObject](){
+        didSet { //property observer for changes
+            listVdeosCollectionView?.reloadData()
+        }
+    }
 
     
     //MARK: - Image Picker Controller
@@ -80,7 +85,7 @@ class HomeViewController: UIViewController {
     }
     
     
- 
+    
     @objc func didTapListViedeosButton(sender: AnyObject){
         Utilities.vibrate()
         imagePickerController.sourceType  = .photoLibrary
@@ -90,6 +95,9 @@ class HomeViewController: UIViewController {
 
     @objc   func didTapTakeVideoButton(sender: AnyObject){
         Utilities.vibrate()
+        
+        imagePickerController.sourceType  = .camera
+        present(imagePickerController, animated: true, completion: nil)
        
     }
     
@@ -104,7 +112,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return mediaObjects.count
     }
     
     
@@ -148,12 +156,32 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         
         //info Dictionary keys having : -
         
-        //InfoKey.originalImage
-        //InfoKey.mediaType
-        //InfoKey.mediaURL
+        //InfoKey.originalImage ->type UIImage
+        //InfoKey.mediaType -> type string
+        //InfoKey.mediaURL -> type URL
         
         guard let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String  else {
             return
+        }
+        
+        switch mediaType{
+        case "public.image" :
+            if let originnalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+               let imageData = originnalImage.jpegData(compressionQuality: 1.0){
+                let mediaObject = MediaObject(imageData: imageData, videoURL: nil, caption: nil, endDate: nil)
+                mediaObjects.append(mediaObject)
+                
+            }
+            
+           
+            break
+        
+        case "public.movie" :
+            break
+        
+        default:
+            showToast(message: "Unsupported Media Type!", fontSize: 12.0)
+            
         }
         
         print("Media Type: \(mediaType)") //publiv.video or public.image
