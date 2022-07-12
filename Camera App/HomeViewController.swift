@@ -9,31 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    //MARK: -  Bar Buttons
-     private let videoButton: UIBarButtonItem = {
-         let videoImage   = UIImage(systemName: "video.fill")!
-         let videoButton = UIBarButtonItem(image: videoImage,  style: .plain, target: self, action: #selector(didTapTakeVideoButton))
-         return videoButton
-     }()
-    
-    
-    private let listVideoButton: UIBarButtonItem = {
-        let listVideos = UIImage(systemName: "list.dash")!
-        let button = UIBarButtonItem(image: listVideos,  style: .plain, target: self, action: #selector(didTapListViedeosButton))
-        return button
-    }()
-     
-    
-    
     private lazy var imagePickerController: UIImagePickerController = {
         let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)
         let pickerController = UIImagePickerController()
-        
-        //If No camera, disbale the button
-        if !UIImagePickerController.isSourceTypeAvailable(.camera){
-            self.videoButton.isEnabled = false
-            
-        }
         pickerController.mediaTypes = mediaTypes ?? ["kUTTypeImage"]
         pickerController.delegate = self
         return pickerController
@@ -57,7 +35,21 @@ class HomeViewController: UIViewController {
     //MARK: - Nav Item
       private func setNavItem(){
         navigationItem.title = "AR Camera"
+          let videoImage   = UIImage(systemName: "video.fill")!
+          let listVideos = UIImage(systemName: "list.dash")!
+
+          let videoButton = UIBarButtonItem(image: videoImage,  style: .plain, target: self, action: #selector(didTapTakeVideoButton))
+          let listVideoButton = UIBarButtonItem(image: listVideos,  style: .plain, target: self, action: #selector(didTapListViedeosButton))
+
           navigationItem.rightBarButtonItems = [listVideoButton,videoButton]
+          
+          
+          //If No camera, disbale the button
+          if !UIImagePickerController.isSourceTypeAvailable(.camera){
+              videoButton.isEnabled = false
+              
+          }
+          
     }
     
     
@@ -69,6 +61,8 @@ class HomeViewController: UIViewController {
         layout.minimumLineSpacing = myVertCVSpacing
         layout.minimumInteritemSpacing = myVertCVSpacing
         layout.itemSize = myCellSize
+        
+//        layout.itemSize = CGSize(width: view.frame.size.width, height: view.frame.size.height )
         listVdeosCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         
@@ -85,6 +79,12 @@ class HomeViewController: UIViewController {
         view.addSubview(listVdeosCollectionView)
         listVdeosCollectionView.frame = view.bounds
     }
+    
+    
+    
+    
+    
+    
     
     
     
