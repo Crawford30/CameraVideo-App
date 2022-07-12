@@ -8,6 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    let myVertCVSpacing:  CGFloat = CGFloat( 8.0 )
     
     
     private var listVdeosCollectionView: UICollectionView?
@@ -40,7 +41,6 @@ class HomeViewController: UIViewController {
     private func configureCollectionView(){
         let myCellSize: CGSize = CGSize( width: (view.frame.size.width)-12, height: view.frame.size.height/2)
         let layout = UICollectionViewFlowLayout()
-        let myVertCVSpacing:  CGFloat = CGFloat( 12.0 )
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = myVertCVSpacing
         layout.minimumInteritemSpacing = myVertCVSpacing
@@ -89,6 +89,8 @@ class HomeViewController: UIViewController {
 
 }
 
+
+//MARK: - UICollection View Data Source Methods
 extension HomeViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -112,6 +114,18 @@ extension HomeViewController: UICollectionViewDataSource{
 
 
 
+//MARK: - UICollection View Delegate Methods
 extension HomeViewController:UICollectionViewDelegateFlowLayout{
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let maxSize:CGSize = UIScreen.main.bounds.size
+//        let itemWidth: CGFloat = maxSize.width
+//        let itemHeight: CGFloat = maxSize.height * 0.40
+//        return CGSize(width: itemWidth,  height: itemHeight)
+//    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: myVertCVSpacing, left: myVertCVSpacing, bottom: myVertCVSpacing, right: myVertCVSpacing)
+    }
     
 }
