@@ -152,7 +152,7 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
         //InfoKey.mediaType
         //InfoKey.mediaURL
         
-        guard let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String?  else {
+        guard let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String  else {
             return
         }
         
