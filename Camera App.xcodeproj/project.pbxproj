@@ -17,6 +17,7 @@
 		FAA43AF7287D8E65000DE943 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43AF6287D8E65000DE943 /* Extensions.swift */; };
 		FAA43AF9287D8EA5000DE943 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43AF8287D8EA5000DE943 /* Utilities.swift */; };
 		FAA43AFB287D8EE6000DE943 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43AFA287D8EE6000DE943 /* CornerRadius.swift */; };
+		FAA43AFE287D9E69000DE943 /* MediaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43AFD287D9E69000DE943 /* MediaObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FAA43AF6287D8E65000DE943 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FAA43AF8287D8EA5000DE943 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		FAA43AFA287D8EE6000DE943 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
+		FAA43AFD287D9E69000DE943 /* MediaObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		FAA43ADF287D80CF000DE943 /* Camera App */ = {
 			isa = PBXGroup;
 			children = (
+				FAA43AFC287D9E54000DE943 /* Model */,
 				FAA43AE0287D80CF000DE943 /* AppDelegate.swift */,
 				FAA43AE2287D80CF000DE943 /* SceneDelegate.swift */,
 				FAA43AE4287D80CF000DE943 /* HomeViewController.swift */,
@@ -77,6 +80,14 @@
 				FAA43AFA287D8EE6000DE943 /* CornerRadius.swift */,
 			);
 			path = "Camera App";
+			sourceTree = "<group>";
+		};
+		FAA43AFC287D9E54000DE943 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAA43AFD287D9E69000DE943 /* MediaObject.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 				FAA43AF9287D8EA5000DE943 /* Utilities.swift in Sources */,
 				FAA43AFB287D8EE6000DE943 /* CornerRadius.swift in Sources */,
 				FAA43AF7287D8E65000DE943 /* Extensions.swift in Sources */,
+				FAA43AFE287D9E69000DE943 /* MediaObject.swift in Sources */,
 				FAA43AE5287D80CF000DE943 /* HomeViewController.swift in Sources */,
 				FAA43AE1287D80CF000DE943 /* AppDelegate.swift in Sources */,
 				FAA43AF5287D8980000DE943 /* VideoCollectionViewCell.swift in Sources */,
