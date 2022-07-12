@@ -92,6 +92,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
          
         return cell!
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Utilities.vibrate()
+        print("Cell: \(indexPath.item) tapped")
+    }
 
    
 
