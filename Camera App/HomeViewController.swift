@@ -97,12 +97,12 @@ extension HomeViewController: UICollectionViewDataSource{
         return 100
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell  = listVdeosCollectionView?.dequeueReusableCell(withReuseIdentifier: VideoCollectionViewCell.identifier, for: indexPath)
-        // cell!.contentView.backgroundColor = .systemYellow
-         
         return cell!
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         Utilities.vibrate()
