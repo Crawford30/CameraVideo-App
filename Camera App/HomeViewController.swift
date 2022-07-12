@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class HomeViewController: UIViewController {
     
     
     private var listVdeosCollectionView: UICollectionView?
@@ -16,7 +16,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setNavItem()
-        createCollectionView()
+        configureCollectionView()
         
     }
 
@@ -35,7 +35,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
           navigationItem.rightBarButtonItems = [listVideoButton,videoButton]
     }
     
-    private func createCollectionView(){
+    
+    //MARK: - CONFIGURE COLLECTION VIEW
+    private func configureCollectionView(){
         let myCellSize: CGSize = CGSize( width: (view.frame.size.width)-12, height: view.frame.size.height/2)
         let layout = UICollectionViewFlowLayout()
         let myVertCVSpacing:  CGFloat = CGFloat( 12.0 )
@@ -82,6 +84,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     
+   
+   
+
+}
+
+extension HomeViewController: UICollectionViewDataSource{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
@@ -98,7 +107,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         print("Cell: \(indexPath.item) tapped")
     }
 
-   
-
+    
 }
 
+
+
+extension HomeViewController:UICollectionViewDelegateFlowLayout{
+    
+}
