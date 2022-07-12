@@ -36,9 +36,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     private func createCollectionView(){
-        let myCellSize: CGSize = CGSize( width: view.frame.size.width, height: view.frame.size.height/2)
+        let myCellSize: CGSize = CGSize( width: (view.frame.size.width)-12, height: view.frame.size.height/2)
         let layout = UICollectionViewFlowLayout()
-        let myVertCVSpacing:  CGFloat = CGFloat( 8.0 )
+        let myVertCVSpacing:  CGFloat = CGFloat( 12.0 )
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = myVertCVSpacing
         layout.minimumInteritemSpacing = myVertCVSpacing
