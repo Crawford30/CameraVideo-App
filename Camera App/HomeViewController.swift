@@ -36,9 +36,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     private func createCollectionView(){
+        let myCellSize: CGSize = CGSize( width: view.frame.size.width, height: view.frame.size.height/2)
         let layout = UICollectionViewFlowLayout()
+        let myVertCVSpacing:  CGFloat = CGFloat( 8.0 )
         layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = myVertCVSpacing
+        layout.minimumInteritemSpacing = myVertCVSpacing
+        layout.itemSize = myCellSize
+        
+//        layout.itemSize = CGSize(width: view.frame.size.width, height: view.frame.size.height )
         listVdeosCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
         
         guard let listVdeosCollectionView = listVdeosCollectionView else {
             return
@@ -46,6 +54,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         listVdeosCollectionView.register(VideoCollectionViewCell.self, forCellWithReuseIdentifier: VideoCollectionViewCell.identifier)
         listVdeosCollectionView.dataSource = self
         listVdeosCollectionView.delegate = self
+        
+        
         
 
         view.addSubview(listVdeosCollectionView)

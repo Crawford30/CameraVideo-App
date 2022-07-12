@@ -14,6 +14,9 @@
 		FAA43AEA287D80D2000DE943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA43AE9287D80D2000DE943 /* Assets.xcassets */; };
 		FAA43AED287D80D2000DE943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA43AEB287D80D2000DE943 /* LaunchScreen.storyboard */; };
 		FAA43AF5287D8980000DE943 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43AF4287D8980000DE943 /* VideoCollectionViewCell.swift */; };
+		FAA43AF7287D8E65000DE943 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43AF6287D8E65000DE943 /* Extensions.swift */; };
+		FAA43AF9287D8EA5000DE943 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43AF8287D8EA5000DE943 /* Utilities.swift */; };
+		FAA43AFB287D8EE6000DE943 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA43AFA287D8EE6000DE943 /* CornerRadius.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		FAA43AEC287D80D2000DE943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAA43AEE287D80D2000DE943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA43AF4287D8980000DE943 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAA43AF6287D8E65000DE943 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FAA43AF8287D8EA5000DE943 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		FAA43AFA287D8EE6000DE943 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,9 @@
 				FAA43AEB287D80D2000DE943 /* LaunchScreen.storyboard */,
 				FAA43AEE287D80D2000DE943 /* Info.plist */,
 				FAA43AF4287D8980000DE943 /* VideoCollectionViewCell.swift */,
+				FAA43AF6287D8E65000DE943 /* Extensions.swift */,
+				FAA43AF8287D8EA5000DE943 /* Utilities.swift */,
+				FAA43AFA287D8EE6000DE943 /* CornerRadius.swift */,
 			);
 			path = "Camera App";
 			sourceTree = "<group>";
@@ -141,6 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA43AF9287D8EA5000DE943 /* Utilities.swift in Sources */,
+				FAA43AFB287D8EE6000DE943 /* CornerRadius.swift in Sources */,
+				FAA43AF7287D8E65000DE943 /* Extensions.swift in Sources */,
 				FAA43AE5287D80CF000DE943 /* HomeViewController.swift in Sources */,
 				FAA43AE1287D80CF000DE943 /* AppDelegate.swift in Sources */,
 				FAA43AF5287D8980000DE943 /* VideoCollectionViewCell.swift in Sources */,
